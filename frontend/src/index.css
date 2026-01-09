@@ -1,0 +1,79 @@
+
+:root{
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --text: #0f1724;
+  --accent: #0f172a;
+  --primary: #2563eb;
+  --glass: rgba(255,255,255,0.6);
+}
+
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:var(--bg); color:var(--text); margin:0; -webkit-font-smoothing:antialiased}
+
+.container{max-width:1100px;margin:0 auto;padding:28px}
+
+/* Topbar */
+.topbar{position:sticky;top:0;background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.55));backdrop-filter:blur(6px);border-bottom:1px solid rgba(15,23,42,0.03);z-index:20}
+.topbar .container{display:flex;align-items:center;gap:20px}
+.brand{font-weight:700;font-size:20px;color:var(--accent);text-decoration:none}
+.topnav{margin-left:auto;display:flex;align-items:center;gap:14px}
+.topnav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px;transition:all .18s}
+.topnav a:hover{color:var(--primary);background:rgba(37,99,235,0.06)}
+
+/* search */
+.search{
+  width:420px;max-width:40%;display:flex;align-items:center;background:var(--card);padding:8px 12px;border-radius:12px;border:1px solid rgba(15,23,42,0.04);box-shadow:0 4px 20px rgba(15,23,42,0.03)
+}
+.search input{flex:1;border:0;outline:none;padding:8px;font-size:14px;background:transparent}
+
+/* Hero */
+.hero{display:flex;gap:28px;align-items:center;padding:36px 0}
+.hero .left{flex:1}
+.hero h1{font-size:40px;margin:0 0 12px;line-height:1.03}
+.hero p{color:var(--muted);margin:0 0 18px}
+.cta{display:inline-block;background:var(--primary);color:white;padding:12px 18px;border-radius:10px;text-decoration:none}
+
+.hero .right{width:360px;min-height:180px;background:linear-gradient(135deg, rgba(37,99,235,0.06), rgba(37,99,235,0.02));border-radius:14px;padding:18px;display:flex;flex-direction:column;justify-content:center}
+.hero .right h3{margin:0 0 8px}
+.hero .right p{margin:0;color:var(--muted)}
+
+/* Posts grid */
+.posts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.post-card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 8px 30px rgba(15,23,42,0.04);transition:transform .18s,box-shadow .18s;border:1px solid rgba(15,23,42,0.03)}
+.post-card:hover{transform:translateY(-6px);box-shadow:0 18px 60px rgba(15,23,42,0.06)}
+.post-card .thumb{height:140px;border-radius:10px;background:linear-gradient(180deg,#e6eefc,#f6f9ff);display:flex;align-items:flex-end;padding:12px;color:var(--primary);font-weight:600}
+.post-card h3{margin:12px 0 6px;font-size:18px}
+.meta{color:var(--muted);font-size:13px;margin:0 0 8px}
+.excerpt{color:#334155;font-size:14px}
+.post-footer{display:flex;justify-content:space-between;align-items:center;margin-top:14px}
+.tag{font-size:12px;color:var(--primary);border:1px solid rgba(37,99,235,0.08);padding:6px 8px;border-radius:8px}
+.actions button{background:transparent;border:1px solid var(--primary);padding:8px 12px;border-radius:8px;color:var(--primary);cursor:pointer}
+
+.comments{background:#fbfdff;padding:12px;margin-top:10px;border-radius:8px;border:1px solid rgba(37,99,235,0.06)}
+
+/* Auth cards */
+.auth-card{max-width:420px;margin:24px auto;background:var(--card);padding:24px;border-radius:12px;box-shadow:0 12px 40px rgba(15,23,42,0.04)}
+.auth-form label{display:block;margin:10px 0;font-size:14px}
+.auth-form input{width:100%;padding:12px;border-radius:10px;border:1px solid #edf2f7}
+.form-actions{margin-top:12px;text-align:right}
+.form-actions button{background:var(--primary);color:white;padding:10px 14px;border-radius:10px;border:none}
+
+.msg{padding:8px;border-radius:8px;margin-bottom:10px}
+.msg.success{background:#ecfdf5;color:#065f46}
+.msg.error{background:#ffefef;color:#7f1d1d}
+
+.footer{padding:28px 0;color:var(--muted);font-size:14px;text-align:center}
+
+@media (max-width:960px){
+  .posts-grid{grid-template-columns:repeat(2,1fr)}
+  .search{display:none}
+}
+@media (max-width:640px){
+  .posts-grid{grid-template-columns:1fr}
+  .hero{flex-direction:column}
+  .hero .right{width:100%}
+  .topbar .container{padding:8px}
+}
